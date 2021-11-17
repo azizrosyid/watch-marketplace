@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('payment_method');
             $table->string('shipment_method');
-            $table->string('total_price');
+            $table->string('total_price')->nullable();
             $table->timestamps();
         });
     }
