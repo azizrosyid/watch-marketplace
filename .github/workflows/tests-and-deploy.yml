@@ -54,3 +54,5 @@ jobs:
       run: npm install && npm run prod
     - name: Seed Database
       run: heroku run php artisan migrate:refresh --force --seed
+    - name: Run Symbolic Link
+      run: heroku run /app/php/bin/php /app/www/artisan storage:link
