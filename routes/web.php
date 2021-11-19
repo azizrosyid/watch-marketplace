@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +16,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::get('/products/hot', [ProductController::class, 'hot'])->name('products.hot');
+Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+
+Route::get('/store', [StoreController::class, 'index'])->name('store.index');
+Route::get('/store/{slug}', [StoreController::class, 'show'])->name('store.show');
+
+Route::prefix('test')->group(function () {
+    Route::get('/login', function () {
+        return view('auth.login');
+    });
+});
+
+require __DIR__ . '/auth.php';
