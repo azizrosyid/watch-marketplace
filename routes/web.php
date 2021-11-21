@@ -29,6 +29,7 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 Route::get('/store', [StoreController::class, 'index'])->name('store.index');
 Route::get('/store/{slug}', [StoreController::class, 'show'])->name('store.show');
 
+
 Route::prefix('test')->group(function () {
     Route::get('/login', function () {
         return view('auth.login');
