@@ -57,7 +57,7 @@
                                                         <h4><span>1 × </span>$800.00</h4>
                                                     </div>
                                                     <div class="shopping-cart-delete">
-                                                        <a href="page-login.html#"><i class="fi-rs-cross-small"></i></a>
+                                                        <a href="#"><i class="fi-rs-cross-small"></i></a>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -70,7 +70,7 @@
                                                         <h4><span>1 × </span>$3200.00</h4>
                                                     </div>
                                                     <div class="shopping-cart-delete">
-                                                        <a href="page-login.html#"><i class="fi-rs-cross-small"></i></a>
+                                                        <a href="#"><i class="fi-rs-cross-small"></i></a>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -128,7 +128,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="index.html"><img src="{{ asset('assets/imgs/theme/Icon.png') }}"
+                        <a href="{{ route('login') }}"><img src="{{ asset('assets/imgs/theme/Icon.png') }}"
                                 style="object-fit: contain" height="50px" alt="logo" /></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
@@ -176,7 +176,7 @@
                                             class="{{ Route::is('products.hot') ? 'active' : '' }}"">Hot Deals</a>
                                     </li>
                                     <li>
-                                        <a class="                       {{ Route::is('home') ? 'active' : '' }}"
+                                        <a class="    {{ Route::is('home') ? 'active' : '' }}"
                                             href="{{ route('home') }}">Home</a>
                                     </li>
                                     <li>
@@ -184,12 +184,10 @@
                                             href="{{ route('store.index') }}">Seller</a>
                                     </li>
                                     <li>
-                                        <a class="{{ Route::is('about') ? 'active' : '' }}" href="
-                                            page-about.html">About</a>
+                                        <a class="{{ Route::is('about') ? 'active' : '' }}" href="#">About</a>
                                     </li>
                                     <li>
-                                        <a class="{{ Route::is('contacts') ? 'active' : '' }}" href="
-                                            page-contact.html">Contact</a>
+                                        <a class="{{ Route::is('contacts') ? 'active' : '' }}" href="#">Contact</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -205,57 +203,51 @@
                     <div class="header-action-right d-block d-lg-none">
                         <div class="header-action-2">
                             <div class="header-action-icon-2">
-                                <a href="shop-wishlist.html">
-                                    <img alt="Nest" src="{{ asset('assets/imgs/theme/icons/icon-heart.svg') }}" />
-                                    <span class="pro-count white">4</span>
-                                </a>
-                            </div>
-                            <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
-                                    <img alt="Nest" src="{{ asset('assets/imgs/theme/icons/icon-cart.svg') }}" />
-                                    {{-- jumlah cart --}}
-                                    <span class="pro-count white">2</span>
-                                </a>
-                                {{-- cart --}}
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Nest"
-                                                        src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" /></a>
+                                @auth
+                                    <a class="mini-cart-icon" href="shop-cart.html">
+                                        <img alt="Nest" src="{{ asset('assets/imgs/theme/icons/icon-cart.svg') }}" />
+                                        <span class="pro-count white">2</span>
+                                    </a>
+                                    <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                        <ul>
+                                            <li>
+                                                <div class="shopping-cart-img">
+                                                    <a href="shop-product-right.html"><img alt="Nest"
+                                                            src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" /></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
+                                                    <h3><span>1 × </span>100.000</h3>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="shopping-cart-img">
+                                                    <a href="shop-product-right.html"><img alt="Nest"
+                                                            src="{{ asset('assets/imgs/shop/thumbnail-4.jpg') }}" /></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
+                                                    <h3><span>1 × </span>100.000</h3>
+                                                </div>
+                                                <div class="shopping-cart-delete">
+                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="shopping-cart-footer">
+                                            <div class="shopping-cart-total">
+                                                <h4>Total <span>200.000</span></h4>
                                             </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
-                                                <h3><span>1 × </span>100.000</h3>
+                                            <div class="shopping-cart-button">
+                                                <a href="shop-cart.html">View cart</a>
+                                                <a href="shop-checkout.html">Checkout</a>
                                             </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="page-login.html#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Nest"
-                                                        src="{{ asset('assets/imgs/shop/thumbnail-4.jpg') }}" /></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
-                                                <h3><span>1 × </span>100.000</h3>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="page-login.html#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span>200.000</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-button">
-                                            <a href="shop-cart.html">View cart</a>
-                                            <a href="shop-checkout.html">Checkout</a>
                                         </div>
                                     </div>
-                                </div>
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -293,7 +285,7 @@
                                 <a href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="{{ route('store.index') }}">Vendors</a>
+                                <a href="{{ route('store.index') }}">Store</a>
                             </li>
                         </ul>
                     </nav>
@@ -301,21 +293,21 @@
                 </div>
                 <div class="mobile-header-info-wrap">
                     <div class="single-mobile-header-info">
-                        <a href="page-login.html"><i class="fi-rs-user"></i>Log In / Sign Up </a>
+                        <a href="{{ route('login') }}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
                     </div>
                 </div>
                 <div class="mobile-social-icon mb-50">
                     <h6 class="mb-15">Follow Us</h6>
-                    <a href="page-login.html#"><img
-                            src="{{ asset('assets/imgs/theme/icons/icon-facebook-white.svg') }}" alt="" /></a>
-                    <a href="page-login.html#"><img
-                            src="{{ asset('assets/imgs/theme/icons/icon-twitter-white.svg') }}" alt="" /></a>
-                    <a href="page-login.html#"><img
-                            src="{{ asset('assets/imgs/theme/icons/icon-instagram-white.svg') }}" alt="" /></a>
-                    <a href="page-login.html#"><img
-                            src="{{ asset('assets/imgs/theme/icons/icon-pinterest-white.svg') }}" alt="" /></a>
-                    <a href="page-login.html#"><img
-                            src="{{ asset('assets/imgs/theme/icons/icon-youtube-white.svg') }}" alt="" /></a>
+                    <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-facebook-white.svg') }}"
+                            alt="" /></a>
+                    <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-twitter-white.svg') }}"
+                            alt="" /></a>
+                    <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-instagram-white.svg') }}"
+                            alt="" /></a>
+                    <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-pinterest-white.svg') }}"
+                            alt="" /></a>
+                    <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-youtube-white.svg') }}"
+                            alt="" /></a>
                 </div>
                 <div class="site-copyright">Copyright 2021 © Watcher. All rights reserved. </div>
             </div>
@@ -428,7 +420,7 @@
                     <div class="col">
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0">
                             <div class="logo mb-30">
-                                <a href="index.html" class="mb-15"><img
+                                <a href="{{ route('login') }}" class="mb-15"><img
                                         src="{{ asset('assets/imgs/theme/Icon.png') }}" style="object-fit: contain"
                                         height="50px" alt="logo" /></a>
                                 <p class="font-lg text-heading">Tempat Jual Beli Jam</p>
@@ -449,34 +441,34 @@
                     <div class="footer-link-widget col">
                         <h4 class="widget-title">Company</h4>
                         <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="page-login.html#">About Us</a></li>
-                            <li><a href="page-login.html#">Delivery Information</a></li>
-                            <li><a href="page-login.html#">Privacy Policy</a></li>
-                            <li><a href="page-login.html#">Terms &amp; Conditions</a></li>
-                            <li><a href="page-login.html#">Contact Us</a></li>
-                            <li><a href="page-login.html#">Support Center</a></li>
-                            <li><a href="page-login.html#">Careers</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Support Center</a></li>
+                            <li><a href="#">Careers</a></li>
                         </ul>
                     </div>
                     <div class="footer-link-widget col">
                         <h4 class="widget-title">Account</h4>
                         <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="page-login.html#">Sign In</a></li>
-                            <li><a href="page-login.html#">View Cart</a></li>
-                            <li><a href="page-login.html#">My Wishlist</a></li>
-                            <li><a href="page-login.html#">Track My Order</a></li>
-                            <li><a href="page-login.html#">Help Ticket</a></li>
-                            <li><a href="page-login.html#">Shipping Details</a></li>
-                            <li><a href="page-login.html#">Compare products</a></li>
+                            <li><a href="#">Sign In</a></li>
+                            <li><a href="#">View Cart</a></li>
+                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="#">Track My Order</a></li>
+                            <li><a href="#">Help Ticket</a></li>
+                            <li><a href="#">Shipping Details</a></li>
+                            <li><a href="#">Compare products</a></li>
                         </ul>
                     </div>
                     <div class="footer-link-widget widget-install-app col">
                         <h4 class="widget-title">Install App</h4>
                         <p class="wow fadeIn animated">From App Store or Google Play</p>
                         <div class="download-app">
-                            <a href="page-login.html#" class="hover-up mb-sm-2 mb-lg-0"><img class="active"
+                            <a href="#" class="hover-up mb-sm-2 mb-lg-0"><img class="active"
                                     src="{{ asset('assets/imgs/theme/app-store.jpg') }}" alt="" /></a>
-                            <a href="page-login.html#" class="hover-up mb-sm-2"><img
+                            <a href="#" class="hover-up mb-sm-2"><img
                                     src="{{ asset('assets/imgs/theme/google-play.jpg') }}" alt="" /></a>
                         </div>
                     </div>
@@ -497,16 +489,16 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                     <div class="mobile-social-icon">
                         <h6>Follow Us</h6>
-                        <a href="page-login.html#"><img
-                                src="{{ asset('assets/imgs/theme/icons/icon-facebook-white.svg') }}" alt="" /></a>
-                        <a href="page-login.html#"><img
-                                src="{{ asset('assets/imgs/theme/icons/icon-twitter-white.svg') }}" alt="" /></a>
-                        <a href="page-login.html#"><img
-                                src="{{ asset('assets/imgs/theme/icons/icon-instagram-white.svg') }}" alt="" /></a>
-                        <a href="page-login.html#"><img
-                                src="{{ asset('assets/imgs/theme/icons/icon-pinterest-white.svg') }}" alt="" /></a>
-                        <a href="page-login.html#"><img
-                                src="{{ asset('assets/imgs/theme/icons/icon-youtube-white.svg') }}" alt="" /></a>
+                        <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-facebook-white.svg') }}"
+                                alt="" /></a>
+                        <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-twitter-white.svg') }}"
+                                alt="" /></a>
+                        <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-instagram-white.svg') }}"
+                                alt="" /></a>
+                        <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-pinterest-white.svg') }}"
+                                alt="" /></a>
+                        <a href="#"><img src="{{ asset('assets/imgs/theme/icons/icon-youtube-white.svg') }}"
+                                alt="" /></a>
                     </div>
                 </div>
             </div>

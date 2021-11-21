@@ -29,8 +29,7 @@
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a
-                                            href="{{ route('product.show', $product->slug) }}">
+                                        <a href="{{ route('product.show', $product->slug) }}">
                                             <img class="default-img" src="{{ $product->image }}" alt="" />
                                             <img class="hover-img" src="{{ $product->image }}" alt="" />
                                         </a>
@@ -41,7 +40,8 @@
                                 </div>
                                 <div class="product-content-wrap">
                                     <div class="product-category">
-                                        <a href="{{ route('category.show', $product->category->slug) }}">{{ $product->category->name }}</a>
+                                        <a
+                                            href="{{ route('category.show', $product->category->slug) }}">{{ $product->category->name }}</a>
                                     </div>
                                     <h2><a
                                             href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
@@ -51,7 +51,7 @@
                                     </div>
                                     <div>
                                         <span class="font-small text-muted">By <a
-                                                href="vendor-details-1.html">{{ $product->store->name }}</a></span>
+                                                href="{{ route('store.show', $product->store->slug) }}">{{ $product->store->name }}</a></span>
                                     </div>
                                     <div class="product-card-bottom">
                                         <div class="product-price">

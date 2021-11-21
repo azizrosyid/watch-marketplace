@@ -85,11 +85,16 @@
                                 <ul>
                                     <li>
                                         <i class="fi fi-rs-marker mr-10 text-brand"></i>
-                                        <span>
-                                            5171 W Campbell Ave <br />
-                                            undefined Kent, Utah 53127 <br />United States
-                                        </span>
-                                        <a href="shop-product-vendor.html#" class="change float-end">Change</a>
+                                        @if (auth()->user()->address)
+                                            <span>
+                                                {{ auth()->user()->address}}
+                                            </span>
+                                        @else
+                                            <span>
+                                                Please add your address
+                                            </span>
+                                        @endif
+                                        <a href="{{ route('account.settings') }}" class="change float-end">Change</a>
                                     </li>
                                     <li class="hr"><span></span></li>
                                 </ul>
@@ -153,7 +158,7 @@
                             <ul>
                                 <li class="hr"><span></span></li>
                             </ul>
-                            <p>Become a Vendor? <a href="page-register.html"> Register now</a></p>
+                            <p>Become a Store? <a href="{{ route('seller.register') }}"> Register now</a></p>
                         </div>
                     </div>
                 </div>
