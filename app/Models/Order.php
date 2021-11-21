@@ -22,4 +22,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public function getFormattedTotalPriceAttribute()
+    {
+        return 'Rp. ' . number_format($this->total_price, 0, ',', '.');
+    }
 }

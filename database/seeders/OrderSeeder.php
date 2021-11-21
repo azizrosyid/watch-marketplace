@@ -15,10 +15,12 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        Order::factory()->count(10)->create();
+        $orders = Order::factory()->count(200)->create();
 
-        Order::all()->each(function ($order) {
-            OrderItem::factory()->count(2)->create([
+        $orders->each(function ($order) {
+            OrderItem::factory()->count(
+                random_int(1, 5)
+            )->create([
                 'order_id' => $order->id,
             ]);
             $order->update([

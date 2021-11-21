@@ -21,15 +21,20 @@
                                 <div class="login_wrap widget-taber-content background-white">
                                     <div class="padding_eight_all bg-white">
                                         <div class="heading_s1">
-                                            <h1 class="mb-5">Create an Account</h1>
+                                            <h1 class="mb-5">Create an Store Account</h1>
                                             <p class="">Already have an account? <a
                                                     href="{{ route('login') }}">Login</a></p>
-                                            <p class="mb-30">Become an Seller? <a
-                                                    href="{{ route('seller.register') }}">Register Store</a></p>
+                                            <p class="mb-30">Become an Customer? <a
+                                                    href="{{ route('register') }}">Register Customer</a></p>
                                         </div>
                                         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                                        <form method="post" action="{{ route('register') }}">
+                                        <form method="post" action="{{ route('seller.register') }}"
+                                            enctype="multipart/form-data">
                                             @csrf
+                                            <div class="form-group">
+                                                <input type="text" required="" name="name" value="{{ old('name') }}"
+                                                    placeholder="Store Name" />
+                                            </div>
                                             <div class="form-group">
                                                 <input type="text" required="" name="username"
                                                     value="{{ old('username') }}" placeholder="Username" />
@@ -39,6 +44,10 @@
                                                     placeholder="Email" />
                                             </div>
                                             <div class="form-group">
+                                                <input type="text" required="" name="phone" value="{{ old('phone') }}"
+                                                    placeholder="Phone Number" />
+                                            </div>
+                                            <div class="form-group">
                                                 <input required="" type="password" name="password"
                                                     placeholder="Password" />
                                             </div>
@@ -46,12 +55,15 @@
                                                 <input required="" type="password" name="password_confirmation"
                                                     placeholder="Confirm password" />
                                             </div>
+                                            <div class="form-group">
+                                                <input required type="file" name="logo" />
+                                            </div>
                                             <div class="login_footer form-group mb-50">
                                                 <div class="chek-form">
                                                     <div class="custome-checkbox">
                                                         <input class="form-check-input" type="checkbox" name="agree"
-                                                            id="exampleCheckbox12" value="" />
-                                                        <label class="form-check-label" for="exampleCheckbox12"><span>I
+                                                            id="agree" value="" />
+                                                        <label class="form-check-label" for="agree"><span>I
                                                                 agree to terms &amp; Policy.</span></label>
                                                     </div>
                                                 </div>
