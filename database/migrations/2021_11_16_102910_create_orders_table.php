@@ -16,9 +16,11 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('store_id')->constrained();
             $table->string('payment_method');
             $table->string('shipment_method');
             $table->string('total_price')->nullable();
+            $table->enum('status', ['UNPAID', 'PAID', 'SHIPPED', 'DELIVERED', 'READY_TO_PICKUP', 'PICKED_UP', 'CANCELLED']);
             $table->timestamps();
         });
     }

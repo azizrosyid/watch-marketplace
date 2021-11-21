@@ -20,10 +20,8 @@ class OrderItemFactory extends Factory
         return [
             "order_id" => Order::all()->random()->id,
             "product_id" => $product->id,
-            "store_id" => $product->store->id,
             "quantity" => $quantity,
             "price" => $product->price * $quantity,
-            "status" => $this->faker->randomElement(['UNPAID', 'PAID', 'SHIPPED', 'DELIVERED', 'READY_TO_PICKUP', 'PICKED_UP', 'CANCELLED']),
         ];
     }
 }

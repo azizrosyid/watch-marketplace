@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'role' => 'customer',
         ]);
 
-        User::factory()->times(50)->create([
+        User::factory()->times(10)->create([
             'role' => 'customer'
         ]);
     }

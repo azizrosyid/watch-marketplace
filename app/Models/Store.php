@@ -10,7 +10,7 @@ class Store extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'address', 'phone', 'email', 'logo', 'user_id'
+        'name', 'slug', 'description', 'address', 'phone', 'email', 'logo', 'user_id'
     ];
 
     public function user()
@@ -27,5 +27,4 @@ class Store extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
-
 }

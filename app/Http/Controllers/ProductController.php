@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         // product in random order
-        $products = Product::inRandomOrder()->get();
+        $products = Product::inRandomOrder()->limit(50)->get();
         $banners = DB::table('banner')->get();
         return view('welcome', compact('products', 'banners'));
     }
@@ -27,6 +27,16 @@ class ProductController extends Controller
         // get 10 products
         $products = Product::inRandomOrder()->limit(10)->get();
         return view('products.hot', compact('products'));
+    }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'query' => 'required',
+        ]);
+        $keyword = $request->input('query');
+        $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
+        return view('products.search', compact('products'));
     }
 
     /**

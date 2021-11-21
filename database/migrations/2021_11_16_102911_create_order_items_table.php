@@ -17,10 +17,8 @@ class CreateOrderItemsTable extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained();
             $table->foreignId('product_id')->constrained();
-            $table->foreignId('store_id')->constrained();
             $table->integer('quantity');
             $table->integer('price');
-            $table->enum('status', ['UNPAID', 'PAID', 'SHIPPED', 'DELIVERED', 'READY_TO_PICKUP', 'PICKED_UP', 'CANCELLED']);
             $table->timestamps();
         });
     }
