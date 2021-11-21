@@ -58,7 +58,7 @@
                                             <span>Rp. {{ $product->price }}</span>
                                         </div>
                                         <div class="add-cart">
-                                            <a class="add" href="shop-cart.html"><i
+                                            <a class="add" href="{{ route('cart.add', $product->id) }}"><i
                                                     class="fi-rs-shopping-cart mr-5"></i>Add </a>
                                         </div>
                                     </div>

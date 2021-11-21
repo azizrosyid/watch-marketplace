@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/account/order/{id}', [AccountController::class, 'order'])->name('account.order');
     Route::get('/account/settings', [AccountController::class, 'settings'])->name('account.settings');
     Route::put('/account/settings', [AccountController::class, 'updateSettings'])->name('account.updateSettings');
+
+    Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
+    Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
 });
 
 require __DIR__ . '/auth.php';

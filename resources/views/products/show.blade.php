@@ -48,16 +48,12 @@
                                             </div>
                                         </div>
                                         <div class="detail-extralink mb-50">
-                                            <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i
-                                                        class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i
-                                                        class="fi-rs-angle-small-up"></i></a>
-                                            </div>
                                             <div class="product-extra-link2">
-                                                <button type="submit" class="button button-add-to-cart"><i
-                                                        class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                                <form action="{{ route('cart.add', $product->id) }}" method="get">
+                                                    <button type="submit" class="button button-add-to-cart"><i
+                                                            class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +83,7 @@
                                         <i class="fi fi-rs-marker mr-10 text-brand"></i>
                                         @if (auth()->user()->address)
                                             <span>
-                                                {{ auth()->user()->address}}
+                                                {{ auth()->user()->address }}
                                             </span>
                                         @else
                                             <span>
