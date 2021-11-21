@@ -13,7 +13,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/imgs/theme/Icon.png') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Icon.png') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
 </head>
@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="{{ route('home') }}"><img src="{{ asset('assets/imgs/theme/Icon.png') }}"
+                        <a href="{{ route('home') }}"><img src="{{ asset('Icon.png') }}"
                                 style="object-fit: contain" height="50px" alt="logo" /></a>
                     </div>
                     <div class="header-right">
@@ -86,7 +86,7 @@
                                                         <a href="{{ route('cart.index') }}"
                                                             class="outline">View
                                                             cart</a>
-                                                        <a href="shop-checkout.html">Checkout</a>
+                                                        <a href="{{ route('checkout.index') }}">Checkout</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@
                                     </div>
                                 @endif
                                 <div class="header-action-icon-2">
-                                    <a href="page-account.html">
+                                    <a href="{{ route('account.index') }}">
                                         <img class="svgInject" alt="Nest"
                                             src="{{ asset('assets/imgs/theme/icons/icon-user.svg') }}" />
                                     </a>
@@ -136,7 +136,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="{{ route('login') }}"><img src="{{ asset('assets/imgs/theme/Icon.png') }}"
+                        <a href="{{ route('login') }}"><img src="{{ asset('Icon.png') }}"
                                 style="object-fit: contain" height="50px" alt="logo" /></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
@@ -185,6 +185,9 @@
                                     </li>
                                     <li>
                                         <a class="
+                                            
+                                            
+                                            
                                             
                                             
                                             
@@ -260,7 +263,7 @@
                                                 </div>
                                                 <div class="shopping-cart-button">
                                                     <a href="{{ route('cart.index') }}">View cart</a>
-                                                    <a href="shop-checkout.html">Checkout</a>
+                                                    <a href="{{ route('checkout.index') }}">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -277,7 +280,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets/imgs/theme/Icon.png') }}"
+                    <a href="{{ route('home') }}"><img src="{{ asset('Icon.png') }}"
                             style="object-fit: contain" height="50px" alt="logo" /></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
@@ -439,7 +442,7 @@
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0">
                             <div class="logo mb-30">
                                 <a href="{{ route('login') }}" class="mb-15"><img
-                                        src="{{ asset('assets/imgs/theme/Icon.png') }}" style="object-fit: contain"
+                                        src="{{ asset('Icon.png') }}" style="object-fit: contain"
                                         height="50px" alt="logo" /></a>
                                 <p class="font-lg text-heading">Tempat Jual Beli Jam</p>
                             </div>
