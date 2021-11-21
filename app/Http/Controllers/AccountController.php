@@ -43,7 +43,7 @@ class AccountController extends Controller
         ]);
         auth()->user()->update([
             'name' => $request->name,
-            'phone' => $request->phone,
+            'phone_number' => $request->phone,
             'address' => $request->address,
         ]);
 

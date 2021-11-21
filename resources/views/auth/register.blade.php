@@ -14,7 +14,7 @@
                     <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
                         <div class="row">
                             <div class="col-lg-6 pr-30 d-none d-lg-block">
-                                <img class="border-radius-15" src="{{ asset('assets/imgs/page/login-1.png') }}"
+                                <img class="border-radius-15" src="https://res.cloudinary.com/azizrosyid/image/upload/v1637513551/undraw_watch_application_uhc9_vvl1l7.svg"
                                     alt="" />
                             </div>
                             <div class="col-lg-6 col-md-12">

@@ -56,6 +56,17 @@ class CartController extends Controller
 
     public function checkout()
     {
+        if (!session()->has('cart')) {
+            return redirect()->route('cart.index');
+        }
+        if (!session()->has('store')) {
+            return redirect()->route('cart.index');
+        }
+
+        $user = auth()->user();
+        if (!$user->name || !$user->address || !$user->phone_number) {
+            return redirect()->route('account.settings')->withMessage('Please update your account information');
+        }
         return view('cart.checkout');
     }
 
