@@ -46,6 +46,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::get('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout.index');
+    Route::post('/checkout', [CartController::class, 'processCheckout'])->name('checkout.process');
 });
 
 require __DIR__ . '/auth.php';
