@@ -4,10 +4,10 @@
             <div class="archive-header">
                 <div class="row align-items-center">
                     <div class="col-xl-3">
-                        <h1 class="mb-15"> Hot Deals </h1>
+                        <h1 class="mb-15"> Search Result </h1>
                         <div class="breadcrumb">
                             <a href="{{ route('home') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span> Shop <span></span> Hot Deals
+                            <span></span> Shop <span></span> Search
                         </div>
                     </div>
                 </div>
@@ -29,8 +29,7 @@
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a
-                                            href="{{ route('product.show', $product->slug) }}">
+                                        <a href="{{ route('product.show', $product->slug) }}">
                                             <img class="default-img" src="{{ $product->image }}" alt="" />
                                             <img class="hover-img" src="{{ $product->image }}" alt="" />
                                         </a>
@@ -41,7 +40,8 @@
                                 </div>
                                 <div class="product-content-wrap">
                                     <div class="product-category">
-                                        <a href="{{ route('category.show', $product->category->slug) }}">{{ $product->category->name }}</a>
+                                        <a
+                                            href="{{ route('category.show', $product->category->slug) }}">{{ $product->category->name }}</a>
                                     </div>
                                     <h2><a
                                             href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>

@@ -6,6 +6,7 @@
     <title>Watcher</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
@@ -28,8 +29,8 @@
                     </div>
                     <div class="header-right">
                         <div class="search-style-2">
-                            <form action="#">
-                                <input type="text" style="max-width: none; width: 100%"
+                            <form action="{{ route('products.search') }}" method="get">
+                                <input type="text" style="max-width: none; width: 100%" name="query"
                                     placeholder="Search for items..." />
                             </form>
                         </div>
@@ -90,22 +91,20 @@
                                         <img class="svgInject" alt="Nest"
                                             src="{{ asset('assets/imgs/theme/icons/icon-user.svg') }}" />
                                     </a>
-                                    <a href="page-account.html"><span class="lable ml-0">Account</span></a>
+                                    <a href="{{ Auth::check() ? route('account.index') : route('login') }}"><span
+                                            class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
                                             @if (Auth::check())
-                                                <li><a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My
+                                                <li><a href="{{ route('account.index') }}"><i
+                                                            class="fi fi-rs-user mr-10"></i>My
                                                         Account</a></li>
-                                                <li><a href="page-account.html"><i
+                                                <li><a href="{{ route('account.orders') }}"><i
                                                             class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
                                                 </li>
-                                                <li><a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My
-                                                        Voucher</a></li>
-                                                <li><a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My
-                                                        Wishlist</a></li>
-                                                <li><a href="page-account.html"><i
+                                                <li><a href="{{ route('account.settings') }}"><i
                                                             class="fi fi-rs-settings-sliders mr-10"></i>Setting</a></li>
-                                                <li><a href="page-login.html"><i
+                                                <li><a href="{{ route('logout') }}"><i
                                                             class="fi fi-rs-sign-out mr-10"></i>Sign
                                                         out</a></li>
                                             @else
@@ -177,7 +176,7 @@
                                             class="{{ Route::is('products.hot') ? 'active' : '' }}"">Hot Deals</a>
                                     </li>
                                     <li>
-                                        <a class="       {{ Route::is('home') ? 'active' : '' }}"
+                                        <a class="                       {{ Route::is('home') ? 'active' : '' }}"
                                             href="{{ route('home') }}">Home</a>
                                     </li>
                                     <li>
@@ -268,7 +267,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="{{route('home')}}"><img src="{{ asset('assets/imgs/theme/Icon.png') }}"
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets/imgs/theme/Icon.png') }}"
                             style="object-fit: contain" height="50px" alt="logo" /></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
@@ -280,8 +279,9 @@
             </div>
             <div class="mobile-header-content-area">
                 <div class="mobile-search search-style-3 mobile-header-border">
-                    <form action="page-login.html#">
-                        <input type="text" placeholder="Search for items…" />
+                    <form action="{{ route('products.search') }}" method="get">
+                        @csrf
+                        <input type="text" name="query" required />
                         <button type="submit"><i class="fi-rs-search"></i></button>
                     </form>
                 </div>
