@@ -51,7 +51,7 @@
                                     </div>
                                     <div>
                                         <span class="font-small text-muted">By <a
-                                                href="vendor-details-1.html">{{ $product->store->name }}</a></span>
+                                                href="{{ route('store.show', $product->store->slug) }}">{{ $product->store->name }}</a></span>
                                     </div>
                                     <div class="product-card-bottom">
                                         <div class="product-price">

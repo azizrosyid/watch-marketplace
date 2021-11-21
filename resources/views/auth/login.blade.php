@@ -2,7 +2,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <a href="{{ route('home') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                 <span></span> Pages <span></span> My Account
             </div>
         </div>
@@ -22,7 +22,7 @@
                                     <div class="heading_s1">
                                         <h1 class="mb-5">Login</h1>
                                         <p class="mb-30">Don't have an account? <a
-                                                href="page-register.html">Create here</a></p>
+                                                href="{{ route('register') }}">Create here</a></p>
                                     </div>
                                     <!-- Session Status -->
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
