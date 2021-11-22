@@ -1,11 +1,3 @@
-@php
-// ddd(
-//     $orders
-//         ->first()
-//         ->order_items->first()
-//         ->product->name
-// );
-@endphp
 <x-main-layout>
     <div class="page-header breadcrumb-wrap">
         <div class="container">

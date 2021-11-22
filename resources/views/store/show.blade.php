@@ -108,7 +108,8 @@
                                 </div>
 
                                 <div class="mt-30 d-flex align-items-center">
-                                    <a aria-label="Buy now" class="btn" href="shop-cart.html"><i
+                                    <a aria-label="Buy now" class="btn"
+                                        href="{{ route('cart.add', $product->id) }}"><i
                                             class="fi-rs-shopping-cart mr-5"></i>Add to Cart</a>
                                 </div>
                             </div>
