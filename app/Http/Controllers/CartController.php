@@ -44,13 +44,17 @@ class CartController extends Controller
     }
 
 
-    public function removeFromCart($id)
+    public function removeFromCart($id, Request $request)
     {
+        $product = session('cart');
+        unset($product[$id]);
+        $request->session()->put('cart', $product);
         return redirect()->route('cart.index');
     }
 
-    public function clearCart()
+    public function clearCart(Request $request)
     {
+        $request->session()->forget('cart');
         return redirect()->route('cart.index');
     }
 
