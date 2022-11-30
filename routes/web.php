@@ -41,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/account/order/{id}', [AccountController::class, 'order'])->name('account.order');
     Route::get('/account/settings', [AccountController::class, 'settings'])->name('account.settings');
     Route::put('/account/settings', [AccountController::class, 'updateSettings'])->name('account.updateSettings');
+    Route::post('/account/upload-payment/{id}', [AccountController::class, 'uploadPayment'])->name('account.uploadPayment');
 
     Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
     Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');

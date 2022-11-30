@@ -28,6 +28,14 @@ class AccountController extends Controller
         $order = auth()->user()->orders()->findOrFail($id);
         return view('account.order', compact('order'));
     }
+    
+    public function uploadPayment(Request $request, $id)
+    {
+        $order = auth()->user()->orders()->findOrFail($id);
+        $order->status = 'PAID';
+        $order->save();
+        return redirect()->route('account.order', $id);
+    }
 
     public function settings()
     {
