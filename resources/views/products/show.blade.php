@@ -118,7 +118,7 @@
                                     alt="" />
                                 <div class="vendor-name ml-15">
                                     <h6>
-                                        <a href="/product/{{ $product->store->slug }}">{{ $product->store->name }}</a>
+                                        <a href="/store/{{ $product->store->slug }}">{{ $product->store->name }}</a>
                                     </h6>
                                     <div class="product-rate-cover text-end">
                                         <div class="product-rate d-inline-block">
