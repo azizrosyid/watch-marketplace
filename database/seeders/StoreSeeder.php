@@ -32,33 +32,32 @@ class StoreSeeder extends Seeder
         ];
 
         // if production 
-        if (App::environment('production')) {
-            $brandProduction = [
-                '169202301',
-                '43688581',
-                '319190119',
-                '322158173',
-                '58657841',
-                '180499362',
-                '510869715',
-                '252036753',
-                '36486437',
-                '288624533',
-                '58660768',
-                '64877197',
-                '237274205',
-                '228491050',
-                '56678007',
-                '102364920',
-                '125056387',
-                '55753966',
-                '69581083',
-                '86427133',
-                '73474949',
-            ];
-            // merge array
-            $brandId = array_merge($brandId, $brandProduction);
-        }
+        $brandProduction = [
+            '169202301',
+            '43688581',
+            '319190119',
+            '322158173',
+            '58657841',
+            '180499362',
+            '510869715',
+            '252036753',
+            '36486437',
+            '288624533',
+            '58660768',
+            '64877197',
+            '237274205',
+            '228491050',
+            '56678007',
+            '102364920',
+            '125056387',
+            '55753966',
+            '69581083',
+            '86427133',
+            '73474949',
+        ];
+        // merge array
+        $brandId = array_merge($brandId, $brandProduction);
+
 
         foreach ($brandId as $id) {
             try {
@@ -113,7 +112,7 @@ class StoreSeeder extends Seeder
                     Product::create($product);
                 }
             } catch (\Exception $e) {
-                continue;
+                print_r($e->getMessage());
             }
         }
     }
