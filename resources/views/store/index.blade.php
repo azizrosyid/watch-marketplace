@@ -3,14 +3,14 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Store List
+                <span></span> Brand List
             </div>
         </div>
     </div>
     <div class="page-content pt-50">
         <div class="container">
             <div class="archive-header-2 text-center">
-                <h1 class="display-2 mb-50">Store List</h1>
+                <h1 class="display-2 mb-50">Brand List</h1>
             </div>
             <div class="row mb-50">
                 <div class="col-12 col-lg-8 mx-auto">

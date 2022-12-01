@@ -184,7 +184,7 @@
                                             <a href="shop-grid-right.html">Shop</a>
                                         </li>
                                         <li>
-                                            <a href="page-login.html#">Seller</a>
+                                            <a href="page-login.html#">Brand</a>
                                         </li>
                                         <li>
                                             <a href="page-contact.html">Contact</a>

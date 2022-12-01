@@ -112,7 +112,7 @@
                             </ul>
                         </div>
                         <div class="sidebar-widget widget-vendor mb-30 bg-grey-9 box-shadow-none">
-                            <h5 class="section-title style-3 mb-20">Seller</h5>
+                            <h5 class="section-title style-3 mb-20">Brand</h5>
                             <div class="vendor-logo d-flex mb-30">
                                 <img src="{{ $product->store->logo }}" style="max-width: 50px; object-fit: contain"
                                     alt="" />
@@ -134,7 +134,7 @@
                                 </li>
                                 <li><img src="{{ asset('assets/imgs/theme/icons/icon-contact.svg') }}"
                                         alt="" /><strong>Contact
-                                        Seller:</strong><span>{{ $product->store->phone }}</span></li>
+                                        Brand:</strong><span>{{ $product->store->phone }}</span></li>
                                 <li class="hr"><span></span></li>
                             </ul>
                             <div class="d-flex justify-content-between">
@@ -154,7 +154,7 @@
                             <ul>
                                 <li class="hr"><span></span></li>
                             </ul>
-                            <p>Become a Store? <a href="{{ route('seller.register') }}"> Register now</a></p>
+                            <p>Become a Brand? <a href="{{ route('seller.register') }}"> Register now</a></p>
                         </div>
                     </div>
                 </div>

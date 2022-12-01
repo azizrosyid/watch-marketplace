@@ -3,7 +3,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{{ route('home') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Store <span></span> {{ $store->name }}
+                <span></span> Brand <span></span> {{ $store->name }}
             </div>
         </div>
     </div>
