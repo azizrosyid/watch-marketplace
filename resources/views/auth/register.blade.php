@@ -24,8 +24,6 @@
                                             <h1 class="mb-5">Create an Account</h1>
                                             <p class="">Already have an account? <a
                                                     href="{{ route('login') }}">Login</a></p>
-                                            <p class="mb-30">Become an Seller? <a
-                                                    href="{{ route('seller.register') }}">Register Store</a></p>
                                         </div>
                                         <x-auth-validation-errors class="mb-4" :errors="$errors" />
                                         <form method="post" action="{{ route('register') }}">

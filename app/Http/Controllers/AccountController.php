@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
@@ -28,11 +31,21 @@ class AccountController extends Controller
         $order = auth()->user()->orders()->findOrFail($id);
         return view('account.order', compact('order'));
     }
-    
+
     public function uploadPayment(Request $request, $id)
     {
-        $order = auth()->user()->orders()->findOrFail($id);
-        $order->status = 'PAID';
+        $order = Order::findOrFail($id);
+        $link = Storage::disk('do')->putFileAs('payments', $request->file('payment'), Carbon::now()->timestamp . '-' . $order->id . '.jpg');
+        $order->image = 'https://rosyid.sgp1.digitaloceanspaces.com/' . $link;
+        $order->status = 'PENDING';
+        $order->save();
+        return redirect()->route('account.order', $id);
+    }
+
+    public function confirmReceived($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->status = 'DELIVERED';
         $order->save();
         return redirect()->route('account.order', $id);
     }

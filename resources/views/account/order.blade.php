@@ -85,6 +85,26 @@
                                                                     <button type="submit" class="btn btn-primary" style="width:100%">Upload
                                                                         Payment</button>
                                                                 </form>
+                                                                @elseif ($order->status == 'PENDING' || $order->status == 'PAID')
+                                                                <!-- image display -->
+                                                                <div class="card" style="width: 100%; height: 100%; object-fit: cover;">
+                                                                    @if ($order->image)
+                                                                    <img src="{{$order->image}}" alt="payment" style="width: 100%; height: 100%; object-fit: cover;">
+                                                                    @endif
+                                                                </div>
+                                                                @elseif ($order->status == 'ON_DELIVERY')
+                                                                <div class="card" style="width: 100%; height: 100%; object-fit: cover;">
+                                                                    @if ($order->delivery_code)
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title">Tracking Code</h5>
+                                                                        <p class="card-text">{{ $order->delivery_code }}</p>
+                                                                    </div>
+                                                                    @endif
+                                                                    <form action="{{ route('account.confirmReceived',  $order->id) }}" method="POST">
+                                                                        @csrf
+                                                                        <button type="submit" class="btn btn-primary" style="width:100%">Confirm Received</button>
+                                                                    </form>
+                                                                </div>
                                                                 @endif
                                                             </td>
                                                             <td colspan="3">
@@ -113,24 +133,12 @@
                                                                             <span class="badge rounded-pill alert-danger text-danger">{{ $order->status }}</span>
                                                                             @elseif ($order->status == 'PAID')
                                                                             <span class="badge rounded-pill alert-info text-info">{{ $order->status }}</span>
-                                                                            @elseif ($order->status ==
-                                                                            'SHIPPED')
+                                                                            @elseif ($order->status == 'PENDING')
+                                                                            <span class="badge rounded-pill alert-warning text-warning">{{ $order->status }}</span>
+                                                                            @elseif ($order->status == 'DELIVERED')
                                                                             <span class="badge rounded-pill alert-success text-success">{{ $order->status }}</span>
-
-                                                                            @elseif ($order->status ==
-                                                                            'DELIVERED')
-                                                                            <span class="badge rounded-pill alert-success text-success">{{ $order->status }}</span>
-
-                                                                            @elseif ($order->status ==
-                                                                            'CANCELLED')
-                                                                            <span class="badge rounded-pill alert-danger text-danger">{{ $order->status }}</span>
-                                                                            @elseif ($order->status ==
-                                                                            'READY_TO_PICKUP')
-                                                                            <span class="badge rounded-pill alert-info text-info">{{ $order->status }}</span>
-                                                                            @elseif ($order->status ==
-                                                                            'PICKED_UP')
-                                                                            <span class="badge rounded-pill alert-success text-success">{{ $order->status }}</span>
-
+                                                                            @elseif ($order->status == 'ON_DELIVERY')
+                                                                            <span class="badge rounded-pill alert-primary text-primary">{{ $order->status }}</span>
                                                                             @endif
                                                                         </dd>
                                                                     </dl>

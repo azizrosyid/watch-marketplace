@@ -8,7 +8,7 @@ class StoreController extends Controller
 {
     public function index()
     {
-        $stores = Store::all();
+        $stores = Store::with('products')->get();
         return view('store.index', compact('stores'));
     }
 

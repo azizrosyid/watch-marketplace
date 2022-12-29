@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Bschmitt\Amqp\Facades\Amqp;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::inRandomOrder()->limit(50)->get();
+        $products = Product::inRandomOrder()->with('category', 'store')->limit(50)->get();
         $banners = DB::table('banner')->get();
         return view('welcome', compact('products', 'banners'));
     }
@@ -42,5 +44,4 @@ class ProductController extends Controller
         $product = Product::where('slug', $slug)->first();
         return view('products.show', compact('product'));
     }
-
 }

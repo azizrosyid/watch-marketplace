@@ -154,7 +154,6 @@
                             <ul>
                                 <li class="hr"><span></span></li>
                             </ul>
-                            <p>Become a Brand? <a href="{{ route('seller.register') }}"> Register now</a></p>
                         </div>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard/approve/{id}', [DashboardController::class, 'approve'])->middleware(['auth'])->name('dashboard.approve');
+Route::get('/dashboard/reject/{id}', [DashboardController::class, 'reject'])->middleware(['auth'])->name('dashboard.reject');
+Route::put('/dashboard/order/tracking/{id}', [DashboardController::class, 'addTrackingNumber'])->middleware(['auth'])->name('dashboard.addTrackingNumber');
+Route::get('/dashboard/product', [DashboardController::class, 'product'])->middleware(['auth'])->name('dashboard.products');
+Route::get('/dashboard/export', [DashboardController::class, 'export'])->middleware(['auth'])->name('dashboard.export');
+Route::post('/dashboard/export', [DashboardController::class, 'exportProduct'])->middleware(['auth'])->name('dashboard.exportProduct');
+Route::get('/dashboard/invoice', [DashboardController::class, 'sendInvoice'])->middleware(['auth'])->name('dashboard.sendInvoice');
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
@@ -39,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/account/address', [AccountController::class, 'address'])->name('account.address');
     Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders');
     Route::get('/account/order/{id}', [AccountController::class, 'order'])->name('account.order');
+    Route::post('/account/order/{id}/confirm', [AccountController::class, 'confirmReceived'])->name('account.confirmReceived');
     Route::get('/account/settings', [AccountController::class, 'settings'])->name('account.settings');
     Route::put('/account/settings', [AccountController::class, 'updateSettings'])->name('account.updateSettings');
     Route::post('/account/upload-payment/{id}', [AccountController::class, 'uploadPayment'])->name('account.uploadPayment');

@@ -199,7 +199,7 @@
                                     </li>
                                     <li>
                                         <a class="{{ Route::is('store.index') ? 'active' : '' }}"
-                                            href="{{ route('store.index') }}">Seller</a>
+                                            href="{{ route('store.index') }}">Brand</a>
                                     </li>
                                     <li>
                                         <a class="{{ Route::is('about') ? 'active' : '' }}" href="#">About</a>
